@@ -2,17 +2,26 @@ const { override } = require('customize-cra');
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require("path");
 
-const addProxy = (name) => {
+const addProxy = (name, port) => {
   const config = {};
-  const pathRewrite = {};
-  pathRewrite[`^/${name}`] = '';
-  config[`/${name}/`] = {
-    target: `https://staging--micro-food-${name}.netlify.app`,
-    pathRewrite,
-    secure: false,
-    changeOrigin: true
-  };
-  return config;
+  if (port) {
+    config[`/${name}/`] = {
+      target: `http://localhost:${port}`,
+      secure: false,
+      changeOrigin: true
+    };
+    return config
+  } else {
+    const pathRewrite = {};
+    pathRewrite[`^/${name}`] = '';
+    config[`/${name}/`] = {
+      target: `https://staging--micro-food-${name}.netlify.app`,
+      pathRewrite,
+      secure: false,
+      changeOrigin: true
+    };
+    return config;
+  }
 };
 
 let isDevServer = !!process.argv.some((arg) => arg.includes("webpack-dev-server"));
@@ -50,6 +59,7 @@ module.exports = {
   devServer: configFunction => (proxy, allowedHost) => {
     proxy = {
       ...proxy,
+      // ...addProxy('catalog', 3200),
       ...addProxy('catalog'),
       ...addProxy('checkout'),
       ...addProxy('cart'),
