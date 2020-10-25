@@ -1,0 +1,3 @@
+/catalog/* https://micro-food-catalog.netlify.app/:splat 200!
+/cart/* https://micro-food-cart.netlify.app/:splat 200!
+/checkout/* https://micro-food-checkout.netlify.app/:splat 200!
