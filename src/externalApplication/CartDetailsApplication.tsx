@@ -12,7 +12,7 @@ export class CartDetailsApplication extends React.Component {
   componentDidMount() {
     registerApplication({
       name,
-      app: getLifeCycles(`/cart/details.js`),
+      app: getLifeCycles(`/cart-app/details.js`),
       activeWhen: () => true,
       customProps: {},
     });

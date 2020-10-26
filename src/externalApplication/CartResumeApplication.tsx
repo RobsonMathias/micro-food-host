@@ -12,7 +12,7 @@ export class CartResumeApplication extends React.Component {
   componentDidMount() {
     registerApplication({
       name,
-      app: getLifeCycles(`/cart/resume.js`),
+      app: getLifeCycles(`/cart-app/resume.js`),
       activeWhen: () => true,
       customProps: {},
     });

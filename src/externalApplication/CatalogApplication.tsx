@@ -12,7 +12,7 @@ export class CatalogApplication extends React.Component {
   componentDidMount() {
     registerApplication({
       name,
-      app: getLifeCycles(`/catalog/index.js`),
+      app: getLifeCycles(`/catalog-app/index.js`),
       activeWhen: () => true,
       customProps: {},
     });

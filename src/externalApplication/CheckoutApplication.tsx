@@ -11,7 +11,7 @@ export class CheckoutApplication extends React.Component {
   componentDidMount() {
     registerApplication({
       name,
-      app: getLifeCycles(`/checkout/index.js`),
+      app: getLifeCycles(`/checkout-app/index.js`),
       activeWhen: () => true,
       customProps: {},
     });
