@@ -5,9 +5,10 @@ import {CheckoutPage} from './CheckoutPage';
 import {CatalogPage} from './CatalogPage';
 import {CartPage} from './CartPage';
 
-const Routes = () => {
+const Routes = ({children}: any) => {
   return (
     <BrowserRouter>
+      {children}
       <Switch>
         <Route component={CatalogPage} exact path={'/'} />
         <Route component={CheckoutPage} exact path={'/checkout'} />

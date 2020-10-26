@@ -6,8 +6,9 @@ import {NavApp, StyleProvider} from './components';
 function App() {
   return (
     <StyleProvider>
-      <NavApp/>
-      <Routes />
+      <Routes>
+        <NavApp/>
+      </Routes>
     </StyleProvider>
   );
 }

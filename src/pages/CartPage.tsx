@@ -8,6 +8,7 @@ import {
   Typography
 } from '@material-ui/core';
 import {CartDetailsApplication} from '../externalApplication';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -33,9 +34,11 @@ function CartPage() {
           <CartDetailsApplication />
         </Grid>
         <Grid item md={4}>
-          <Button className={classes.checkout} size={'large'} fullWidth={true} variant={'outlined'} color="primary">
-            Buy now
-          </Button>
+          <Link to={'/checkout'}>
+            <Button className={classes.checkout} size={'large'} fullWidth={true} variant={'outlined'} color="primary">
+              Buy now
+            </Button>
+          </Link>
         </Grid>
       </Grid>
     </Container>

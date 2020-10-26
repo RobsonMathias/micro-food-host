@@ -1,26 +1,32 @@
 import React from 'react';
-import {registerApplication} from 'single-spa'
+import {getAppStatus, MOUNTED, registerApplication, unregisterApplication} from 'single-spa'
 
 function getLifeCycles(path: string) {
   return () => window.System.import(path);
 }
 
+const name = 'catalog';
+
 export class CatalogApplication extends React.Component {
 
   componentDidMount() {
     registerApplication({
-      name: 'catalog',
+      name,
       app: getLifeCycles(`/catalog/index.js`),
       activeWhen: () => true,
       customProps: {},
     });
   }
-  componentDidUpdate() {
+
+  componentWillUnmount(): void {
+    if (getAppStatus(name) === MOUNTED) {
+      unregisterApplication(name).then(console.log)
+    }
   }
 
   render() {
     return (
-      <div data-app={'catalog'}/>
+      <div data-app={name}/>
     );
   }
 }

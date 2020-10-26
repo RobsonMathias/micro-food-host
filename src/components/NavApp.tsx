@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import {Container} from '@material-ui/core';
 import {CartResumeApplication} from '../externalApplication';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -22,11 +23,15 @@ function NavApp() {
       <AppBar position="static">
         <Container maxWidth="lg">
           <Toolbar>
-            <Typography variant="h6" noWrap>
-              Micro Food
-            </Typography>
+            <Link to={'/'}>
+              <Typography variant="h6" noWrap>
+                Micro Food
+              </Typography>
+            </Link>
             <div className={classes.grow} />
-            <CartResumeApplication/>
+            <Link to={'/cart'}>
+              <CartResumeApplication/>
+            </Link>
           </Toolbar>
         </Container>
       </AppBar>

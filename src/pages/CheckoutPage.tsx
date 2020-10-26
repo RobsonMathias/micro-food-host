@@ -5,6 +5,7 @@ import {
   Container,
   Typography,
 } from '@material-ui/core';
+import {CheckoutApplication} from '../externalApplication';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -25,7 +26,7 @@ function CheckoutPage() {
   return (
     <Container maxWidth="lg" className={classes.root}>
       <Typography variant={'h4'} component={'h1'}>Payment options</Typography>
-
+      <CheckoutApplication/>
     </Container>
   );
 }
