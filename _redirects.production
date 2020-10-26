@@ -1,4 +1,4 @@
 /catalog-app/* https://micro-food-catalog.netlify.app/:splat 200!
 /cart-app/* https://micro-food-cart.netlify.app/:splat 200!
 /checkout-app/* https://micro-food-checkout.netlify.app/:splat 200!
-/* /index.html 200!
+/* /index.html 200
